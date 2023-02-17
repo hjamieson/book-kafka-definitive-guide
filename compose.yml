@@ -1,0 +1,32 @@
+version: "3.9"
+
+name: "my_kafka-net"
+
+services:
+  zookeeper:
+    container_name: zookeeper
+    build:
+      dockerfile: Dockerfile.zookeeper
+    ports:
+      - "2181:2181"
+      - "2888:2888"
+      - "3888:3888"
+    environment:
+      ALLOW_ANONYMOUS_LOGIN: "yes"
+    volumes:
+      - vol-zoo:/data
+
+  kafka:
+    depends_on:
+      - zookeeper
+    container_name: kafka
+    build:
+      dockerfile: Dockerfile.kafka
+    ports:
+      - "9092:9092"
+    volumes:
+      - vol-kafka:/data
+
+volumes:
+  vol-zoo:
+  vol-kafka:

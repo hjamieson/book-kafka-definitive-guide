@@ -1,0 +1,11 @@
+FROM eclipse-temurin:17-jdk
+
+COPY download/kafka_2.13-3.4.0 /opt/kafka
+
+WORKDIR /opt/kafka
+
+COPY vol-kafka/config/kafka.properties /opt/kafka/config/
+
+EXPOSE 9092
+
+CMD ["bin/kafka-server-start.sh", "config/kafka.properties"]
