@@ -19,14 +19,14 @@ repositories {
 dependencies {
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
-
+    implementation 'org.slf4j:slf4j-simple:1.7.+'
     // This dependency is used by the application.
-    implementation 'com.google.guava:guava:30.1.1-jre'
+    implementation 'org.apache.kafka:kafka-clients:3.4.0'
 }
 
 application {
     // Define the main class for the application.
-    mainClass = 'book.kafka.App'
+    mainClass = 'book.kafka.ConsumerMain'
 }
 
 tasks.named('test') {

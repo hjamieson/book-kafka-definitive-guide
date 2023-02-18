@@ -25,6 +25,7 @@ services:
       KAFKA_CFG_ZOOKEEPER_CONNECT: zookeeper-server:2181
     networks:
       - kafka-net
+    hostname: kafka
 
 networks:
   kafka-net:
